@@ -1,5 +1,5 @@
+import 'package:BetByApp/flavors/environment.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_getx_template/flavors/environment.dart';
 
 import '/app/network/pretty_dio_logger.dart';
 import '/app/network/request_headers.dart';
@@ -11,6 +11,7 @@ class DioProvider {
   static Dio? _instance;
 
   static const int _maxLineWidth = 90;
+
   static final _prettyDioLogger = PrettyDioLogger(
       requestHeader: true,
       requestBody: true,

@@ -6,17 +6,15 @@ import '/app/data/remote/github_remote_data_source.dart';
 import '/app/data/repository/github_repository.dart';
 
 class GithubRepositoryImpl implements GithubRepository {
-  final GithubRemoteDataSource _remoteSource =
-      Get.find(tag: (GithubRemoteDataSource).toString());
+  final RemoteDataSource _remoteSource = Get.find(tag: (RemoteDataSource).toString());
 
   @override
-  Future<GithubProjectSearchResponse> searchProject(
-      GithubSearchQueryParam queryParam) {
-    return _remoteSource.searchGithubProject(queryParam);
+  Future<ProjectSearchResponse> searchProject(SearchQueryParam queryParam) {
+    return _remoteSource.searchProject(queryParam);
   }
 
   @override
   Future<Item> getProject(String userName, String repositoryName) {
-    return _remoteSource.getGithubProjectDetails(userName, repositoryName);
+    return _remoteSource.getProjectDetails(userName, repositoryName);
   }
 }

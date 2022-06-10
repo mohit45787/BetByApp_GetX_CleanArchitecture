@@ -1,11 +1,11 @@
-class GithubProjectSearchResponse {
-  GithubProjectSearchResponse({
+class ProjectSearchResponse {
+  ProjectSearchResponse({
     this.totalCount,
     this.incompleteResults,
     this.items,
   });
 
-  GithubProjectSearchResponse.fromJson(dynamic json) {
+  ProjectSearchResponse.fromJson(dynamic json) {
     totalCount = json['total_count'];
     incompleteResults = json['incomplete_results'];
     if (json['items'] != null) {

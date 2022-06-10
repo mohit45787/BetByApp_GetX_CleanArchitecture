@@ -7,7 +7,7 @@ import '/flavors/environment.dart';
 
 void main() {
   EnvConfig prodConfig = EnvConfig(
-    appName: "Flutter GetX Template Prod",
+    appName: "Bet-By-App Prod",
     baseUrl: "https://api.github.com",
     shouldCollectCrashLog: true,
   );

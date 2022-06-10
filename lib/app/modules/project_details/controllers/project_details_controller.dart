@@ -6,17 +6,16 @@ import '/app/data/repository/github_repository.dart';
 import '/app/modules/home/model/github_project_ui_data.dart';
 
 class ProjectDetailsController extends BaseController {
-  final GithubRepository _repository =
-      Get.find(tag: (GithubRepository).toString());
+  final GithubRepository _repository = Get.find(tag: (GithubRepository).toString());
 
-  final Rx<GithubProjectUiData> _projectUiData = GithubProjectUiData().obs;
+  final Rx<ProjectData> _projectUiData = ProjectData().obs;
 
-  GithubProjectUiData get projectUiData => _projectUiData.value;
+  ProjectData get projectUiData => _projectUiData.value;
 
   @override
   void onInit() {
     var dataModel = Get.arguments;
-    if (dataModel is GithubProjectUiData) {
+    if (dataModel is ProjectData) {
       getGithubRepository(dataModel.ownerLoginName, dataModel.repositoryName);
     }
     super.onInit();
@@ -30,7 +29,7 @@ class ProjectDetailsController extends BaseController {
   }
 
   void _handleProjectDetailsResponseSuccess(Item project) {
-    _projectUiData(GithubProjectUiData(
+    _projectUiData(ProjectData(
       repositoryName: project.name != null ? project.name! : "",
       ownerLoginName: project.owner != null ? project.owner!.login! : "",
       ownerAvatar: project.owner != null ? project.owner!.avatarUrl! : "",

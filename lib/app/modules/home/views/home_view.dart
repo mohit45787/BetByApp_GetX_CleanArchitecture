@@ -9,14 +9,16 @@ import '/app/modules/home/controllers/home_controller.dart';
 import '/app/modules/home/widget/item_github_project.dart';
 
 class HomeView extends BaseView<HomeController> {
+  // constructor
   HomeView() {
     controller.getGithubGetxProjectList();
   }
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
+    // need back action here..
     return CustomAppBar(
-      appBarTitleText: 'GetX Templates on GitHub',
+      appBarTitleText: 'Bet By App',
     );
   }
 
@@ -40,10 +42,9 @@ class HomeView extends BaseView<HomeController> {
             itemBuilder: (context, index) {
               var model = controller.projectList[index];
 
-              return ItemGithubProject(dataModel: model);
+              return ItemProject(dataModel: model);
             },
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(height: AppValues.smallMargin),
+            separatorBuilder: (BuildContext context, int index) => const SizedBox(height: AppValues.smallMargin),
           ),
         ),
       ),

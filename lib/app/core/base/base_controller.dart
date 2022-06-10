@@ -30,33 +30,26 @@ abstract class BaseController extends GetxController {
   final _pageSateController = PageState.DEFAULT.obs;
 
   PageState get pageState => _pageSateController.value;
-
   updatePageState(PageState state) => _pageSateController(state);
-
   resetPageState() => _pageSateController(PageState.DEFAULT);
-
   showLoading() => updatePageState(PageState.LOADING);
-
   hideLoading() => resetPageState();
 
+  /// Message
   final _messageController = ''.obs;
-
   String get message => _messageController.value;
-
   showMessage(String msg) => _messageController(msg);
 
+  /// Error Message
   final _errorMessageController = ''.obs;
-
   String get errorMessage => _errorMessageController.value;
-
   showErrorMessage(String msg) {
     _errorMessageController(msg);
   }
 
+  /// Success Message
   final _successMessageController = ''.obs;
-
   String get successMessage => _messageController.value;
-
   showSuccessMessage(String msg) => _successMessageController(msg);
 
   // ignore: long-parameter-list
@@ -68,14 +61,10 @@ abstract class BaseController extends GetxController {
     Function? onComplete,
   }) async {
     Exception? _exception;
-
     onStart == null ? showLoading() : onStart();
-
     try {
       final T response = await future;
-
       if (onSuccess != null) onSuccess(response);
-
       onComplete == null ? hideLoading() : onComplete();
 
       return response;

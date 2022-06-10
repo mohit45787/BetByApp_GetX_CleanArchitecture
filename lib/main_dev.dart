@@ -7,7 +7,7 @@ import '/flavors/environment.dart';
 
 void main() {
   EnvConfig devConfig = EnvConfig(
-    appName: "Flutter GetX Template Dev",
+    appName: "Bet-By-App Dev",
     baseUrl: "https://api.github.com",
     shouldCollectCrashLog: true,
   );

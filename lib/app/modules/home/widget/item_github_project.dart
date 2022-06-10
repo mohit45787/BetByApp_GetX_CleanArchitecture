@@ -1,5 +1,5 @@
+import 'package:BetByApp/app/core/widget/ripple.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_template/app/core/widget/ripple.dart';
 import 'package:get/get.dart';
 
 import '/app/core/base/base_widget_mixin.dart';
@@ -11,10 +11,10 @@ import '/app/core/widget/icon_text_widgets.dart';
 import '/app/modules/home/model/github_project_ui_data.dart';
 import '/app/routes/app_pages.dart';
 
-class ItemGithubProject extends StatelessWidget with BaseWidgetMixin {
-  final GithubProjectUiData dataModel;
+class ItemProject extends StatelessWidget with BaseWidgetMixin {
+  final ProjectData dataModel;
 
-  ItemGithubProject({
+  ItemProject({
     Key? key,
     required this.dataModel,
   }) : super(key: key);

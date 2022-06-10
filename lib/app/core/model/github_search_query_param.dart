@@ -1,11 +1,11 @@
 import '/app/core/values/app_values.dart';
 
-class GithubSearchQueryParam {
+class SearchQueryParam {
   String searchKeyWord;
   int perPage;
   int pageNumber;
 
-  GithubSearchQueryParam({
+  SearchQueryParam({
     required this.searchKeyWord,
     this.perPage = AppValues.defaultPageSize,
     this.pageNumber = AppValues.defaultPageNumber,

@@ -60,7 +60,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 32
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -68,9 +68,9 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.hellohasan.flutter_getx_template"
+        applicationId "co.app.bet"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -99,9 +99,11 @@ android {
         dev {
             dimension "default"
             applicationIdSuffix ".dev"
+            resValue "string", "app_name", "Bet-By-App_DEV"
         }
         prod {
             dimension "default"
+            resValue "string", "app_name", "Bet-By-App"
         }
     }
 }

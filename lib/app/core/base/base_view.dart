@@ -11,8 +11,7 @@ import '/app/core/values/app_colors.dart';
 import '/app/core/widget/loading.dart';
 import '/flavors/build_config.dart';
 
-abstract class BaseView<Controller extends BaseController>
-    extends GetView<Controller> {
+abstract class BaseView<Controller extends BaseController> extends GetView<Controller> {
   final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
 
   AppLocalizations get appLocalization => AppLocalizations.of(Get.context!)!;
@@ -29,12 +28,8 @@ abstract class BaseView<Controller extends BaseController>
       child: Stack(
         children: [
           annotatedRegion(context),
-          Obx(() => controller.pageState == PageState.LOADING
-              ? _showLoading()
-              : Container()),
-          Obx(() => controller.errorMessage.isNotEmpty
-              ? showErrorSnackBar(controller.errorMessage)
-              : Container()),
+          Obx(() => controller.pageState == PageState.LOADING ? _showLoading() : Container()),
+          Obx(() => controller.errorMessage.isNotEmpty ? showErrorSnackBar(controller.errorMessage) : Container()),
           Container(),
         ],
       ),
@@ -84,11 +79,7 @@ abstract class BaseView<Controller extends BaseController>
   }
 
   void showToast(String message) {
-    Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_SHORT,
-        timeInSecForIosWeb: 1
-    );
+    Fluttertoast.showToast(msg: message, toastLength: Toast.LENGTH_SHORT, timeInSecForIosWeb: 1);
   }
 
   Color pageBackgroundColor() {

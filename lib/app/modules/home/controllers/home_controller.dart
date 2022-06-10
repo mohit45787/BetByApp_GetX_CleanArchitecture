@@ -8,29 +8,29 @@ import '/app/data/repository/github_repository.dart';
 import '/app/modules/home/model/github_project_ui_data.dart';
 
 class HomeController extends BaseController {
-  final GithubRepository _repository =
-      Get.find(tag: (GithubRepository).toString());
+  // find abstrct class  GithubRepository
+  final GithubRepository _repository = Get.find(tag: (GithubRepository).toString());
 
-  final RxList<GithubProjectUiData> _githubProjectListController =
-      RxList.empty();
+  final RxList<ProjectData> _projectListController = RxList.empty();
 
-  List<GithubProjectUiData> get projectList =>
-      _githubProjectListController.toList();
+  List<ProjectData> get projectList => _projectListController.toList();
 
-  final pagingController = PagingController<GithubProjectUiData>();
+  final pagingController = PagingController<ProjectData>();
 
   void getGithubGetxProjectList() {
     if (!pagingController.canLoadNextPage()) return;
-
     pagingController.isLoadingPage = true;
 
-    var queryParam = GithubSearchQueryParam(
-      searchKeyWord: 'flutter getx template',
+    // request
+    var queryParam = SearchQueryParam(
+      searchKeyWord: 'Search Text',
       pageNumber: pagingController.pageNumber,
     );
 
+    /// createService
     var githubRepoSearchService = _repository.searchProject(queryParam);
 
+    //
     callDataService(
       githubRepoSearchService,
       onSuccess: _handleProjectListResponseSuccess,
@@ -50,9 +50,9 @@ class HomeController extends BaseController {
     getGithubGetxProjectList();
   }
 
-  void _handleProjectListResponseSuccess(GithubProjectSearchResponse response) {
-    List<GithubProjectUiData>? repoList = response.items
-        ?.map((e) => GithubProjectUiData(
+  void _handleProjectListResponseSuccess(ProjectSearchResponse response) {
+    List<ProjectData>? repoList = response.items
+        ?.map((e) => ProjectData(
               repositoryName: e.name != null ? e.name! : "Null",
               ownerLoginName: e.owner != null ? e.owner!.login! : "Null",
               ownerAvatar: e.owner != null ? e.owner!.avatarUrl! : "",
@@ -72,7 +72,7 @@ class HomeController extends BaseController {
 
     var newList = [...pagingController.listItems];
 
-    _githubProjectListController(newList);
+    _projectListController(newList);
   }
 
   bool _isLastPage(int newListItemCount, int totalCount) {
