@@ -8,7 +8,7 @@ import '/app/core/values/app_values.dart';
 import '/app/core/values/text_styles.dart';
 import '/app/core/widget/elevated_container.dart';
 import '/app/core/widget/icon_text_widgets.dart';
-import '/app/modules/home/model/github_project_ui_data.dart';
+import '/app/modules/home/model/project_detail.dart';
 import '/app/routes/app_pages.dart';
 
 class ItemProject extends StatelessWidget with BaseWidgetMixin {
@@ -72,7 +72,7 @@ class ItemProject extends StatelessWidget with BaseWidgetMixin {
     return Row(
       children: [
         IconTextWidget(
-          fileName: "ic_fork.svg",
+          fileName: "ic_chat.svg",
           value: dataModel.numberOfFork.toString(),
           height: AppValues.iconSize_20,
           width: AppValues.iconSize_20,

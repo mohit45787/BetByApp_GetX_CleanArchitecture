@@ -1,0 +1,1 @@
+enum AdChoice { adFree, adEnabled }

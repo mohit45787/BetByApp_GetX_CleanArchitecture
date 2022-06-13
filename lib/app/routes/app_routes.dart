@@ -4,7 +4,8 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
 
-  static const MAIN = _Paths.MAIN;
+  static const SPLASH = _Paths.SPLASH;
+  static const DASHBOARD = _Paths.DASHBOARD;
   static const HOME = _Paths.HOME;
   static const FAVORITE = _Paths.FAVORITE;
   static const SETTINGS = _Paths.SETTINGS;
@@ -13,10 +14,11 @@ abstract class Routes {
 }
 
 abstract class _Paths {
-  static const MAIN = '/main';
+  static const DASHBOARD = '/main';
   static const HOME = '/home';
   static const FAVORITE = '/favorite';
   static const SETTINGS = '/settings';
   static const OTHER = '/other';
   static const PROJECT_DETAILS = '/project-details';
+  static const SPLASH = '/Splash';
 }

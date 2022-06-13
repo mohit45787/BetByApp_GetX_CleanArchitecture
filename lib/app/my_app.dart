@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 import '/app/bindings/initial_binding.dart';
@@ -25,8 +24,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: AppPages.INITIAL,
       initialBinding: InitialBinding(),
       getPages: AppPages.routes,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: _getSupportedLocal(),
+      // localizationsDelegates: AppLocalizations.localizationsDelegates,
+      // supportedLocales: _getSupportedLocal(),
       theme: ThemeData(
         primarySwatch: AppColors.colorPrimarySwatch,
         visualDensity: VisualDensity.adaptivePlatformDensity,

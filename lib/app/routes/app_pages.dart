@@ -1,3 +1,4 @@
+import 'package:BetByApp/app/modules/splash/bindings/splash_binding.dart';
 import 'package:get/get.dart';
 
 import '/app/modules/favorite/bindings/favorite_binding.dart';
@@ -12,19 +13,25 @@ import '/app/modules/project_details/bindings/project_details_binding.dart';
 import '/app/modules/project_details/views/project_details_view.dart';
 import '/app/modules/settings/bindings/settings_binding.dart';
 import '/app/modules/settings/views/settings_view.dart';
+import '../modules/splash/views/splash_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
-      name: _Paths.MAIN,
-      page: () => MainView(),
-      binding: MainBinding(),
+      name: _Paths.SPLASH,
+      page: () => SplashView(),
+      binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => DashboardView(),
+      binding: DashboardBinding(),
     ),
     GetPage(
       name: _Paths.HOME,
